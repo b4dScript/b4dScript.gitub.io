@@ -1,6 +1,6 @@
 ---
 title: "HTB Academy | Attacking Common Services"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+description: "This is a hard lab writeup from the htb module attacking common services"
 pubDate: "Nov 18 2024"
 heroImage: "https://academy.hackthebox.com/storage/modules/116/logo.png?t=1730242916"
 badge: "Hard Lab"
