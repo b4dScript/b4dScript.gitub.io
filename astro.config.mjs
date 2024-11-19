@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://b4dScript.github.io',
+  site: 'https://b4dscript.github.io',
   base: 'my-repo',
   integrations: [mdx(), sitemap(), tailwind()]
 });
