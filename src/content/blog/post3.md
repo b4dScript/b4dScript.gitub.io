@@ -4,7 +4,7 @@ description: "This is a easy lab writeup from the htb module attacking common se
 pubDate: "Nov 15 2024"
 heroImage: "https://academy.hackthebox.com/storage/modules/116/logo.png?t=1730242916"
 badge: "Easy"
-tags: ["ftp", "bruteforcing", "information-leakage","Linux"]
+tags: ["smtp", "bruteforcing", "information-leakage","Windows","MySql","RCE","XAMPP","Revershe Shell"]
 ---
 
 - 1. Nmap scan:
